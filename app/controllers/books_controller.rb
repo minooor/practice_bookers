@@ -27,10 +27,12 @@ before_action :authenticate_user!
   end
 
   def edit
+    @books = Book.all
     @book = Book.find(params[:id])
     if @book.user == current_user
       render "edit"
     else
+      @books = Book.all
       redirect_to books_path
     end
   end
@@ -40,6 +42,7 @@ before_action :authenticate_user!
     if @book.update(book_params)
       redirect_to book_path(@book.id), notice: "You have updated book successfully."
     else
+      @books = Book.all
       render :edit
     end
   end
