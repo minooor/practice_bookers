@@ -5,13 +5,14 @@ before_action :authenticate_user!
     @book_new = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
-
+    @book_comment = BookComment.new
   end
 
   def index
     @book = Book.new
     @books = Book.all
     @user = current_user
+    @book_comment = BookComment.new
   end
 
   def create
