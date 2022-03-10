@@ -28,6 +28,11 @@
         <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-primary" %>
        <% end %>
       <% end %>
+      <td>
+        <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+         <%= link_to 'chatを始める', chat_path(user.id) %>
+        <% end %>
+      </td>
     </th>
   </tr>
 
