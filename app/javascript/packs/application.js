@@ -20,6 +20,7 @@ var jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 global.Chart = Chart;
+window.$ = window.jQuery = require('jquery');
 
 Rails.start()
 Turbolinks.start()
