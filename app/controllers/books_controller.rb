@@ -10,13 +10,11 @@ before_action :authenticate_user!
 
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.all.order(params[:sort])
     @user = current_user
     @book_comment = BookComment.new
     @favorite = current_user.favorites.new(book_id: @book.id)
-    @books = Book.includes(:favorites).sort{|a,b|
-     b. favorites.where(created_at: Time.current.all_week).size <=>
-     a. favorites.where(created_at: Time.current.all_week).size}
+
   end
 
   def create
