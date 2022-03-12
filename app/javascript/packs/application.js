@@ -21,6 +21,7 @@ global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 global.Chart = Chart;
 window.$ = window.jQuery = require('jquery');
+require('packs/raty')
 
 Rails.start()
 Turbolinks.start()

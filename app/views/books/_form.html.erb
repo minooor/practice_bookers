@@ -7,6 +7,21 @@
     <%= f.label :opinion %>
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
+  <div class="form-group row" id="star1">
+    <%= f.label :rate,'Rate ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :rate, id: :book_star %>
+
+    <script>
+      $('#star1').raty({
+      size     : 36,
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,
+      scoreName: 'book[star]' //登録するモデル名とカラム名を記述
+      });
+    </script>
+  </div>
   <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
   </div>
